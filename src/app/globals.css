@@ -2,16 +2,13 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-display: fallback;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-a {
-  padding-left: 0.5rem;
 }
 
 header {
@@ -23,7 +20,12 @@ ul {
 }
 
 li span {
-  padding-left: 0.5rem;
+  padding-left: 1.5rem;
+  font-size: 2rem;
+}
+
+li i {
+  vertical-align: text-top !important;
 }
 
 i {

@@ -2,43 +2,43 @@
 
 const masterLinkArray = [
   {
-    icon: "fab fa-linkedin",
+    icon: "fab fa-xl fa-linkedin",
     url: "http://frankrosario.li",
     title: "LinkedIn",
     directory: ["li", "linkedin"],
   },
   {
-    icon: "fab fa-stack-overflow",
+    icon: "fab fa-xl fa-stack-overflow",
     url: "https://stackoverflow.com/users/10922/frank-rosario",
     title: "Stack OverFlow",
     directory: ["so", "stackoverflow"],
   },
   {
-    icon: "fab fa-github-square",
+    icon: "fab fa-xl fa-github-square",
     url: "https://github.com/frankjrosario",
     title: "GitHub",
     directory: ["gh", "github", "git"],
   },
   {
-    icon: "fab fa-twitter-square",
+    icon: "fab fa-xl fa-twitter-square",
     url: "https://www.twitter.com/frosario",
     title: "Twitter",
     directory: ["tw", "twitter", "x", "twt"],
   },
   {
-    icon: "fab fa-facebook-square",
+    icon: "fab fa-xl fa-facebook-square",
     url: "https://www.facebook.com/frank.rosario",
     title: "Facebook",
     directory: ["fb", "facebook"],
   },
   {
-    icon: "fab fa-ebay",
+    icon: "fab fa-xl fa-ebay",
     url: "https://www.ebay.com/sch/jammerfi/m.html?_nkw=&_armrs=1&_from=&_ipg=200",
     title: "EBay",
     directory: ["eb", "ebay"],
   },
   {
-    icon: "fa-regular fa-envelope",
+    icon: "fa-regular fa-xl fa-envelope",
     url: "https://forms.gle/QfFUBtPjbZRQP4g96",
     title: "Contact",
     directory: [
