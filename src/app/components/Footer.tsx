@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 
 interface FooterProps {
@@ -17,4 +18,4 @@ Footer.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
-export default Footer;
+export default React.memo(Footer);
