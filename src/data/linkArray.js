@@ -10,7 +10,7 @@ const masterLinkArray = [
   {
     icon: "fab fa-xl fa-stack-overflow",
     url: "https://stackoverflow.com/users/10922/frank-rosario",
-    title: "Stack OverFlow",
+    title: "Stack Overflow",
     directory: ["so", "stackoverflow"],
   },
   {
@@ -22,7 +22,7 @@ const masterLinkArray = [
   {
     icon: "fab fa-xl fa-twitter-square",
     url: "https://www.twitter.com/frosario",
-    title: "Twitter",
+    title: "X/Twitter",
     directory: ["tw", "twitter", "x", "twt"],
   },
   {
