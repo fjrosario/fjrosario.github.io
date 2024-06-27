@@ -29,3 +29,8 @@ li i {
   width: 0.5rem;
   height: 0.5rem;
 }
+
+h1.p-name {
+  text-decoration: none;
+  color: #fff;
+}
