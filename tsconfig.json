@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "forceConsistentCasingInFileNames": true, // Enable the forceConsistentCasingInFileNames option
     "plugins": [
       {
         "name": "next"
@@ -26,9 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/data/linkArray.js",
-    "src/app/layout.tsx_",
-    "src/pages/social/layout.tsx_"
+    "src/data/linkArray.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -6,15 +6,17 @@ interface LinkListProps {
   linkArray: Link[];
 }
 
+const externalLinkPath: string = "out";
+
 function LinkList({ linkArray = [] }: LinkListProps) {
   return (
     <nav aria-label="External links">
       <ul>
-        {linkArray.map(({ icon, url, title }) => (
-          <li key={url}>
+        {linkArray.map(({ icon, directory, title, originUrl }) => (
+          <li key={originUrl}>
             <i className={icon}></i>
             <a
-              href={url}
+              href={`${externalLinkPath}/${directory[0]}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={title}

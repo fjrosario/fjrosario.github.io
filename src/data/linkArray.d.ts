@@ -7,7 +7,7 @@ export interface Link {
   /**
    * The URL of the external website.
    */
-  url: string;
+  originUrl: string;
 
   /**
    * The title of the link, which will be displayed to the user.
@@ -17,7 +17,7 @@ export interface Link {
   /**
    * The directory of the link, which will be displayed to the user.
    */
-  directory?: string[];
+  directory: string[];
 }
 
 export const masterLinkArray: Link[];
