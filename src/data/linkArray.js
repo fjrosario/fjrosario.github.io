@@ -15,7 +15,7 @@ const masterLinkArray = [
   },
   {
     icon: "fab fa-xl fa-github-square",
-    url: "https://github.com/frankjrosario",
+    url: "https://github.com/fjrosario",
     title: "GitHub",
     directory: ["gh", "github", "git"],
   },
