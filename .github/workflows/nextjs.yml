@@ -9,6 +9,10 @@ on:
   push:
     branches: ["master"]
 
+  # Runs once a year to keep the year in the footer up to date
+  schedule:
+    - cron: "@yearly"
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
