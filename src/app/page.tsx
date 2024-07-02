@@ -1,3 +1,4 @@
+import React from "react";
 import App from "./components/App";
 import { masterLinkArray } from "../data/linkArray";
 import { myBio } from "../data/bio";

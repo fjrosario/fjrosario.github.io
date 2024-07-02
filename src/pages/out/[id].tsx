@@ -1,7 +1,6 @@
 import { masterLinkArray, Link } from "../../data/linkArray";
 import Head from "next/head";
 import React from "react";
-import "./redirect.css";
 
 const redirectDelayInSeconds: number = 1;
 
@@ -23,15 +22,15 @@ export default function Page({ params }: { params: { id: string } }) {
   );
 
   //uncomment line to disable redirect
-  metaRedirectTag = <></>;
+  //metaRedirectTag = <></>;
 
   return (
     <>
-      <Head>
+      <Head key={"redirectHeadTags"}>
         <title>{redirectCopy}</title>
         {metaRedirectTag}
       </Head>
-      <h1>{redirectCopy}</h1>
+      <h1 style={{ margin: "5rem 5rem 0 5rem" }}>{redirectCopy}</h1>
     </>
   );
 }
