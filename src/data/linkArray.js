@@ -3,7 +3,7 @@
 const masterLinkArray = [
   {
     icon: "fab fa-xl fa-linkedin",
-    originUrl: "http://frankrosario.li",
+    originUrl: "https://www.linkedin.com/in/frankjrosario/",
     title: "LinkedIn",
     directory: ["linkedin", "li"],
   },
