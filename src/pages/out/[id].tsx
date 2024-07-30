@@ -6,13 +6,24 @@ const redirectDelayInSeconds: number = 1;
 
 function getPageLink(id: string): Link | null {
   return (
-    masterLinkArray.find((link: Link) => link.directory?.includes(id)) || null
+    masterLinkArray.find((link: Link) => link.directories?.includes(id)) || null
   );
 }
 
 export default function Page({ params }: { params: { id: string } }) {
   const link: Link | null = getPageLink(params.id);
-  const redirectCopy = `Redirecting to ${link?.title}: ${link?.originUrl}...`;
+  const redirectCopy = `Redirecting to ${link?.title}...`;
+  const redirectHtml = (
+    <a
+      rel="noopener noreferrer"
+      aria-label={link?.title}
+      title={link?.title}
+      href={link?.originUrl}
+    >
+      {link?.originUrl}
+    </a>
+  );
+
   // eslint-disable-next-line prefer-const
   let metaRedirectTag = (
     <meta
@@ -30,7 +41,9 @@ export default function Page({ params }: { params: { id: string } }) {
         <title>{redirectCopy}</title>
         {metaRedirectTag}
       </Head>
-      <h1 style={{ margin: "5rem 5rem 0 5rem" }}>{redirectCopy}</h1>
+      <h1 style={{ margin: "5rem 5rem 0 5rem" }}>
+        {redirectCopy} {redirectHtml}
+      </h1>
     </>
   );
 }
@@ -56,7 +69,7 @@ export async function getStaticPaths(): Promise<{
   //linkArray = linkArray.slice(0, 1);
 
   paths = linkArray.flatMap(
-    (link) => link.directory?.map((dir) => ({ params: { id: dir } })) || []
+    (link) => link.directories?.map((dir) => ({ params: { id: dir } })) || []
   );
 
   return { paths, fallback: false };

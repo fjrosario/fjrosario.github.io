@@ -1,3 +1,5 @@
+import exp from "constants";
+
 export interface Link {
   /**
    * The CSS class for the icon to display for this link.
@@ -17,7 +19,11 @@ export interface Link {
   /**
    * The directory of the link, which will be displayed to the user.
    */
-  directory: string[];
+  directories: string[];
 }
 
 export const masterLinkArray: Link[];
+
+export const externalLinkPath: string;
+
+export const getRelativeExternalUrl: (string: path) => string;

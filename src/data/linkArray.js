@@ -5,44 +5,50 @@ const masterLinkArray = [
     icon: "fab fa-xl fa-linkedin",
     originUrl: "https://www.linkedin.com/in/frankjrosario/",
     title: "LinkedIn",
-    directory: ["linkedin", "li"],
+    directories: ["linkedin", "li"],
   },
   {
     icon: "fab fa-xl fa-stack-overflow",
     originUrl: "https://stackoverflow.com/users/10922/frank-rosario",
     title: "Stack Overflow",
-    directory: ["stackoverflow", "so"],
+    directories: ["stackoverflow", "so"],
   },
   {
     icon: "fab fa-xl fa-github-square",
     originUrl: "https://github.com/fjrosario",
     title: "GitHub",
-    directory: ["github", "gh", "git"],
+    directories: ["github", "gh", "git"],
   },
   {
     icon: "fab fa-xl fa-twitter-square",
     originUrl: "https://www.twitter.com/frosario",
     title: "X/Twitter",
-    directory: ["x", "tw", "twitter", "twt"],
+    directories: ["x", "tw", "twitter", "twt"],
   },
   {
     icon: "fab fa-xl fa-facebook-square",
     originUrl: "https://www.facebook.com/frank.rosario",
     title: "Facebook",
-    directory: ["facebook", "fb"],
+    directories: ["facebook", "fb"],
+  },
+  {
+    icon: "fa-solid fa-xl fa-shop",
+    originUrl: "https://www.mercari.com/u/frankrosario/?itemStatuses=1",
+    title: "Mercari",
+    directories: ["mercari", "store"],
   },
   {
     icon: "fab fa-xl fa-ebay",
     originUrl:
       "https://www.ebay.com/sch/jammerfi/m.html?_nkw=&_armrs=1&_from=&_ipg=200",
     title: "EBay",
-    directory: ["ebay", "eb"],
+    directories: ["ebay", "eb"],
   },
   {
     icon: "fa-regular fa-xl fa-envelope",
     originUrl: "https://forms.gle/QfFUBtPjbZRQP4g96",
     title: "Contact",
-    directory: [
+    directories: [
       "contact",
       "contactme",
       "email",
@@ -56,4 +62,10 @@ const masterLinkArray = [
   },
 ];
 
-module.exports = { masterLinkArray };
+const externalLinkPath = "out";
+
+const getRelativeExternalUrl = (path) => {
+  return `/${externalLinkPath}/${path}`;
+};
+
+export { masterLinkArray, externalLinkPath, getRelativeExternalUrl };

@@ -1,4 +1,4 @@
-import { Link } from "../../data/linkArray";
+import { Link, getRelativeExternalUrl } from "../../data/linkArray";
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -6,17 +6,15 @@ interface LinkListProps {
   linkArray: Link[];
 }
 
-const externalLinkPath: string = "out";
-
 function LinkList({ linkArray = [] }: LinkListProps) {
   return (
     <nav aria-label="External links">
       <ul>
-        {linkArray.map(({ icon, directory, title, originUrl }) => (
-          <li key={originUrl}>
+        {linkArray.map(({ icon, directories, title }) => (
+          <li key={directories[0]}>
             <i className={icon}></i>
             <a
-              href={`${externalLinkPath}/${directory[0]}`}
+              href={`${getRelativeExternalUrl(directories[0])}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={title}
