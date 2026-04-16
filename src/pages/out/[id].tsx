@@ -1,76 +1,69 @@
-import { masterLinkArray, Link } from "../../data/linkArray";
 import Head from "next/head";
-import React from "react";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { getLinkByDirectory, masterLinkArray } from "../../data/linkArray";
 
-const redirectDelayInSeconds: number = 1;
+const redirectDelayInSeconds = 1;
 
-function getPageLink(id: string): Link | null {
-  return (
-    masterLinkArray.find((link: Link) => link.directories?.includes(id)) || null
-  );
-}
+type RedirectPageProps = {
+  id: string;
+};
 
-export default function Page({ params }: { params: { id: string } }) {
-  const link: Link | null = getPageLink(params.id);
-  const redirectCopy = `Redirecting to ${link?.title}...`;
-  const redirectHtml = (
-    <a
-      rel="noopener noreferrer"
-      aria-label={link?.title}
-      title={link?.title}
-      href={link?.originUrl}
-    >
-      {link?.originUrl}
-    </a>
-  );
+export default function Page({
+  id,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  const link = getLinkByDirectory(id);
 
-  // eslint-disable-next-line prefer-const
-  let metaRedirectTag = (
-    <meta
-      httpEquiv="refresh"
-      content={`${redirectDelayInSeconds}; url=${link?.originUrl}`}
-    />
-  );
+  if (!link) {
+    return (
+      <>
+        <Head>
+          <title>Redirect not found</title>
+          <meta name="robots" content="noindex" />
+        </Head>
+        <h1 className="redirect">Redirect not found.</h1>
+      </>
+    );
+  }
 
-  //uncomment line to disable redirect
-  //metaRedirectTag = <></>;
+  const redirectCopy = `Redirecting to ${link.title}...`;
 
   return (
     <>
-      <Head key={"redirectHeadTags"}>
+      <Head>
         <title>{redirectCopy}</title>
-        {metaRedirectTag}
+        <meta
+          httpEquiv="refresh"
+          content={`${redirectDelayInSeconds}; url=${link.originUrl}`}
+        />
+        <meta name="robots" content="noindex" />
       </Head>
-      <h1 style={{ margin: "5rem 5rem 0 5rem" }}>
-        {redirectCopy} {redirectHtml}
+      <h1 className="redirect">
+        {redirectCopy}{" "}
+        <a
+          rel="noopener noreferrer"
+          aria-label={link.title}
+          title={link.title}
+          href={link.originUrl}
+        >
+          {link.originUrl}
+        </a>
       </h1>
     </>
   );
 }
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
-  return { props: { params } };
-}
+export const getStaticProps: GetStaticProps<RedirectPageProps> = async ({
+  params,
+}) => {
+  const id = typeof params?.id === "string" ? params.id : "";
 
-export async function getStaticPaths(): Promise<{
-  paths: { params: { id: string } }[];
-  fallback: boolean;
-}> {
-  let paths: {
-    params: {
-      id: string;
-    };
-  }[] = [];
+  return { props: { id } };
+};
 
-  // eslint-disable-next-line prefer-const
-  let linkArray = masterLinkArray;
-
-  //uncomment line to only generate one redirect page (for debugging)
-  //linkArray = linkArray.slice(0, 1);
-
-  paths = linkArray.flatMap(
-    (link) => link.directories?.map((dir) => ({ params: { id: dir } })) || []
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = masterLinkArray.flatMap((link) =>
+    link.directories.map((id) => ({ params: { id } }))
   );
 
   return { paths, fallback: false };
-}
+};

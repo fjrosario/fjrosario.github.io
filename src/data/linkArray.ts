@@ -1,6 +1,13 @@
-// Purpose: To store the master link array for the site and redirects.
+// Purpose: Store the master link array for the site and its redirects.
 
-const masterLinkArray = [
+export interface Link {
+  icon: string;
+  originUrl: string;
+  title: string;
+  directories: string[];
+}
+
+export const masterLinkArray: Link[] = [
   {
     icon: "fab fa-xl fa-linkedin",
     originUrl: "https://www.linkedin.com/in/frankjrosario/",
@@ -41,7 +48,7 @@ const masterLinkArray = [
     icon: "fab fa-xl fa-ebay",
     originUrl:
       "https://www.ebay.com/sch/jammerfi/m.html?_nkw=&_armrs=1&_from=&_ipg=200",
-    title: "EBay",
+    title: "eBay",
     directories: ["ebay", "eb"],
   },
   {
@@ -62,10 +69,14 @@ const masterLinkArray = [
   },
 ];
 
-const externalLinkPath = "out";
+export const externalLinkPath = "out";
 
-const getRelativeExternalUrl = (path) => {
+export function getRelativeExternalUrl(path: string) {
   return `/${externalLinkPath}/${path}`;
-};
+}
 
-export { masterLinkArray, externalLinkPath, getRelativeExternalUrl };
+export function getLinkByDirectory(path: string) {
+  return (
+    masterLinkArray.find((link) => link.directories.includes(path)) ?? null
+  );
+}
