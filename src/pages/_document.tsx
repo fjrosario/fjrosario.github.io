@@ -1,27 +1,18 @@
-import React from "react";
-import { Html, Main, Head } from "next/document";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { Head, Html, Main, NextScript } from "next/document";
+
+const bootstrapHref =
+  "https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css";
 
 export default function Document() {
   return (
     <Html lang="en">
-      <head>
-        <Head>
-          <link
-            rel="shortcut icon"
-            href="data:image/x-icon;,"
-            type="image/x-icon"
-          />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css"
-          />
-        </Head>
-      </head>
-      <body>
+      <Head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="stylesheet" type="text/css" href={bootstrapHref} />
+      </Head>
+      <body className="container">
         <Main />
-        <GoogleTagManager gtmId="UA-7068993-1" />
+        <NextScript />
       </body>
     </Html>
   );

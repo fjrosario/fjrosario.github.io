@@ -1,6 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Bio } from "../../data/bio";
+import type { Bio } from "../../data/bio";
 
 function Header({ name, title }: Pick<Bio, "name" | "title">) {
   return (
@@ -10,9 +8,7 @@ function Header({ name, title }: Pick<Bio, "name" | "title">) {
         href="https://frankrosario.com"
         rel="noopener noreferrer"
       >
-        <h1 className="p-name" aria-label={name}>
-          {name}
-        </h1>
+        <h1 className="p-name">{name}</h1>
       </a>
       <h2>
         <em>{title}</em>
@@ -21,9 +17,4 @@ function Header({ name, title }: Pick<Bio, "name" | "title">) {
   );
 }
 
-Header.propTypes = {
-  name: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
-
-export default React.memo(Header);
+export default Header;
