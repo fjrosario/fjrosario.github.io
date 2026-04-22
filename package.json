@@ -1,12 +1,13 @@
 {
-  "name": "my-app",
+  "name": "fjrosario",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit --incremental false"
   },
   "dependencies": {
     "@next/third-parties": "^14.2.3",
