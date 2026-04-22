@@ -3,8 +3,7 @@ import Script from "next/script";
 import { myBio } from "../data/bio";
 import "./globals.css";
 
-const bootstrapHref =
-  "https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css";
+const bootstrapHref = "/css/bootstrap.min.css";
 const fontAwesomeKitSrc = "https://kit.fontawesome.com/b19667d46a.js";
 const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -25,7 +24,7 @@ export default function RootLayout({
     <html lang="en" dir="ltr">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="stylesheet" href={bootstrapHref} crossOrigin="anonymous" />
+        <link rel="stylesheet" href={bootstrapHref} />
       </head>
       <body className="container">
         {children}
