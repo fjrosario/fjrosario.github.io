@@ -7,6 +7,7 @@ export default [
   {
     ignores: [
       ".next/**",
+      ".test-dist/**",
       "next.lock/**",
       "out/**",
       "public/**",
