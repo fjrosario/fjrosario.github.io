@@ -34,3 +34,9 @@ npm run build
 
 - Set `NEXT_PUBLIC_GA_ID` to enable Google Analytics loading in production builds.
 - If no analytics ID is set, the site skips loading analytics scripts.
+
+## GitHub Pages
+
+- In the repository settings, set Pages to deploy from **GitHub Actions**.
+- If Pages is set to deploy from a branch, GitHub will serve repository files directly and may show this README instead of the Next.js static export.
+- The Pages workflow publishes the generated `out/` directory.
