@@ -19,37 +19,15 @@ ul {
   list-style-position: inside;
 }
 
-.link-title {
+li span {
   padding-left: 1.5rem;
   font-size: 2rem;
 }
 
-.link-icon {
-  color: #fff;
-  display: inline-block;
-  height: 1.75rem;
-  vertical-align: -0.25rem;
-  width: 1.75rem;
-}
-
-.link-icon-background {
-  fill: currentColor;
-}
-
-.link-icon-mark {
-  fill: #222;
-  font-family: Georgia, serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-
-.link-icon-line {
-  fill: none;
-  stroke: #222;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2;
+li i {
+  vertical-align: text-top !important;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 h1.p-name {

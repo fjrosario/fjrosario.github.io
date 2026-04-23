@@ -4,6 +4,7 @@ import { myBio } from "../data/bio";
 import "./globals.css";
 
 const bootstrapHref = "/css/bootstrap.min.css";
+const fontAwesomeKitSrc = "https://kit.fontawesome.com/b19667d46a.js";
 const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
@@ -45,6 +46,11 @@ export default function RootLayout({
       </head>
       <body className="container">
         {children}
+        <Script
+          src={fontAwesomeKitSrc}
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
         {googleAnalyticsId ? (
           <>
             <Script
