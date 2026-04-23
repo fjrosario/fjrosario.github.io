@@ -1,4 +1,8 @@
-import { Link, getRelativeExternalUrl } from "../../data/linkArray";
+import {
+  Link,
+  getPrimaryDirectory,
+  getRelativeExternalUrl,
+} from "../../data/linkArray";
 
 interface LinkListProps {
   linkArray: Link[];
@@ -8,15 +12,15 @@ function LinkList({ linkArray = [] }: LinkListProps) {
   return (
     <nav aria-label="External links">
       <ul>
-        {linkArray.map(({ icon, directories, title }) => (
-          <li key={directories[0]}>
+        {linkArray.map((link) => (
+          <li key={getPrimaryDirectory(link)}>
             <a
-              href={getRelativeExternalUrl(directories[0])}
+              href={getRelativeExternalUrl(getPrimaryDirectory(link))}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={icon} aria-hidden="true"></i>
-              <span>{title}</span>
+              <i className={link.icon} aria-hidden="true"></i>
+              <span>{link.title}</span>
             </a>
           </li>
         ))}

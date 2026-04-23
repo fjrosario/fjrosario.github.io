@@ -4,7 +4,7 @@ export interface Link {
   icon: string;
   originUrl: string;
   title: string;
-  directories: string[];
+  directories: [string, ...string[]];
 }
 
 export const masterLinkArray: Link[] = [
@@ -73,6 +73,10 @@ export const externalLinkPath = "out";
 
 export function getRelativeExternalUrl(path: string) {
   return `/${externalLinkPath}/${path}`;
+}
+
+export function getPrimaryDirectory(link: Link) {
+  return link.directories[0];
 }
 
 export function getLinkByDirectory(path: string) {
