@@ -8,10 +8,28 @@ const fontAwesomeKitSrc = "https://kit.fontawesome.com/b19667d46a.js";
 const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(myBio.url),
   title: myBio.fullTitle,
-  description: myBio.fullTitle,
+  description: myBio.description,
+  applicationName: myBio.name,
+  authors: [{ name: myBio.name, url: myBio.url }],
+  creator: myBio.name,
+  publisher: myBio.name,
+  manifest: "/manifest.json",
   alternates: {
-    canonical: "https://frankrosario.com",
+    canonical: myBio.url,
+  },
+  openGraph: {
+    type: "profile",
+    url: myBio.url,
+    title: myBio.fullTitle,
+    description: myBio.description,
+    siteName: myBio.name,
+  },
+  twitter: {
+    card: "summary",
+    title: myBio.fullTitle,
+    description: myBio.description,
   },
 };
 
