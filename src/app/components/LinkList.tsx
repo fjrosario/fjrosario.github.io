@@ -3,6 +3,7 @@ import {
   getPrimaryDirectory,
   getRelativeExternalUrl,
 } from "../../data/linkArray";
+import LinkIcon from "./LinkIcon";
 
 interface LinkListProps {
   linkArray: Link[];
@@ -19,8 +20,8 @@ function LinkList({ linkArray = [] }: LinkListProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={link.icon} aria-hidden="true"></i>
-              <span>{link.title}</span>
+              <LinkIcon icon={link.icon} />
+              <span className="link-title">{link.title}</span>
             </a>
           </li>
         ))}

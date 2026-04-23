@@ -1,7 +1,17 @@
 // Purpose: Store the master link array for the site and its redirects.
 
+export type IconName =
+  | "linkedin"
+  | "stackoverflow"
+  | "github"
+  | "x"
+  | "facebook"
+  | "shop"
+  | "ebay"
+  | "email";
+
 export interface Link {
-  icon: string;
+  icon: IconName;
   originUrl: string;
   title: string;
   directories: [string, ...string[]];
@@ -9,50 +19,50 @@ export interface Link {
 
 export const masterLinkArray: Link[] = [
   {
-    icon: "fab fa-xl fa-linkedin",
+    icon: "linkedin",
     originUrl: "https://www.linkedin.com/in/frankjrosario/",
     title: "LinkedIn",
     directories: ["linkedin", "li"],
   },
   {
-    icon: "fab fa-xl fa-stack-overflow",
+    icon: "stackoverflow",
     originUrl: "https://stackoverflow.com/users/10922/frank-rosario",
     title: "Stack Overflow",
     directories: ["stackoverflow", "so"],
   },
   {
-    icon: "fab fa-xl fa-github-square",
+    icon: "github",
     originUrl: "https://github.com/fjrosario",
     title: "GitHub",
     directories: ["github", "gh", "git", "dev"],
   },
   {
-    icon: "fab fa-xl fa-twitter-square",
+    icon: "x",
     originUrl: "https://www.twitter.com/frosario",
     title: "X/Twitter",
     directories: ["x", "tw", "twitter", "twt"],
   },
   {
-    icon: "fab fa-xl fa-facebook-square",
+    icon: "facebook",
     originUrl: "https://www.facebook.com/frank.rosario",
     title: "Facebook",
     directories: ["facebook", "fb"],
   },
   {
-    icon: "fa-solid fa-xl fa-shop",
+    icon: "shop",
     originUrl: "https://www.mercari.com/u/frankrosario/?itemStatuses=1",
     title: "Mercari",
     directories: ["mercari", "store"],
   },
   {
-    icon: "fab fa-xl fa-ebay",
+    icon: "ebay",
     originUrl:
       "https://www.ebay.com/sch/jammerfi/m.html?_nkw=&_armrs=1&_from=&_ipg=200",
     title: "eBay",
     directories: ["ebay", "eb"],
   },
   {
-    icon: "fa-regular fa-xl fa-envelope",
+    icon: "email",
     originUrl: "https://forms.gle/QfFUBtPjbZRQP4g96",
     title: "Contact",
     directories: [
